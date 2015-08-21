@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="renderer" content="webkit">
-<title>自动化部署平台</title>
+<title>JDeploy自动化部署平台</title>
 <link rel="stylesheet" href="http://cdn.bootcss.com/materialize/0.97.0/css/materialize.min.css">
 <link href="${pageContext.request.contextPath}/resources/css/icon.css" rel="stylesheet">
 <style type="text/css">
@@ -73,7 +73,7 @@
 
 	<nav>
 		<div class="nav-wrapper">
-			<a href="${pageContext.request.contextPath}/" class="brand-logo center">自动化部署平台</a>
+			<a href="${pageContext.request.contextPath}/" class="brand-logo center">JDeploy自动化部署平台</a>
 		</div>
 	</nav>
 
