@@ -13,10 +13,8 @@
 
     <mvc:annotation-driven />
 
-    <!-- 自动装配包中带有@Controller注解的类 -->
-    <context:component-scan base-package="com.xxg.jdeploy">
-        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-    </context:component-scan>
+    <!-- 自动加载Controller -->
+    <context:component-scan base-package="com.xxg.jdeploy.controller" />
 
     <!-- jsp视图路径配置 -->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

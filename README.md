@@ -21,7 +21,7 @@ SVN地址：http://code.taobao.org/svn/jdploy_java_deploy_test/
 如果项目已经完成部署，可以通过点击“重启”或者“停止”按钮来重启或停止。
 
 ### 查看运行状态和显示日志
-可在“运行状态”面板中查看程序运行状态，点击“显示日志”可以显示程序在控制台输入的日志。
+可在“运行状态”面板中查看程序运行状态，点击“查看日志”可以查看程序在控制台输入的日志。
 
 ### 对Java项目要求
 DEMO：http://code.taobao.org/svn/jdploy_java_deploy_test/

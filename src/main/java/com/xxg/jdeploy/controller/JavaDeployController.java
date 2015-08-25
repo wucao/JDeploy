@@ -4,6 +4,7 @@ import com.xxg.jdeploy.domain.JavaDeployInfo;
 import com.xxg.jdeploy.service.JavaDeployService;
 import com.xxg.jdeploy.util.ShellUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,8 +28,6 @@ public class JavaDeployController {
 	@Autowired
 	private JavaDeployService javaDeployService;
 
-	private String shellFileFolder = "doc/shell/javadeploy";
-	
 	/**
 	 * 添加项目页面
 	 */
@@ -65,13 +64,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "status", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStatus(String uuid) throws IOException {
-		JavaDeployInfo info = javaDeployService.getDetail(uuid);
-		if(info != null) {
-			String out = ShellUtil.exec("sh " + shellFileFolder + "/isrunning.sh " + info.getUuid());
-			return String.valueOf(StringUtils.hasText(out) && out.contains("java -jar"));
-		} else {
-			return "false";
-		}
+		return javaDeployService.getStatus(uuid);
 	}
 	
 	/**
@@ -80,22 +73,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "deploy", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxDeploy(String uuid) throws IOException {
-
-		JavaDeployInfo info = javaDeployService.getDetail(uuid);
-		if(info != null) {
-			StringBuilder sb = new StringBuilder();
-
-			// kill进程
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
-			// 打包
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl()));
-			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName()));
-
-			return sb.toString();
-		} else {
-			return uuid + "对应的项目不存在！";
-		}
+		return javaDeployService.deploy(uuid);
 	}
 	
 	/**
@@ -104,19 +82,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "restart", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxRestart(String uuid) throws IOException {
-
-		JavaDeployInfo info = javaDeployService.getDetail(uuid);
-
-		if(info != null) {
-			StringBuilder sb = new StringBuilder();
-			// kill进程
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
-			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName()));
-			return sb.toString();
-		} else {
-			return uuid + "对应的项目不存在！";
-		}
+		return javaDeployService.restart(uuid);
 	}
 	
 	/**
@@ -125,14 +91,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "stop", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStop(String uuid) throws IOException {
-
-		JavaDeployInfo info = javaDeployService.getDetail(uuid);
-		if(info != null) {
-			StringBuilder sb = new StringBuilder();
-			return ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid());
-		} else {
-			return uuid + "对应的项目不存在！";
-		}
+		return javaDeployService.stop(uuid);
 	}
 
 	/**
@@ -141,12 +100,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "log", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxShowLog(String uuid) throws IOException {
-		JavaDeployInfo info = javaDeployService.getDetail(uuid);
-		if(info != null) {
-			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid());
-		} else {
-			return uuid + "对应的项目不存在！";
-		}
+		return javaDeployService.showLog(uuid);
 	}
 
 }
