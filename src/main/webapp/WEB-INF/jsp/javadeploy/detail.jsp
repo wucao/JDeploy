@@ -67,7 +67,7 @@
 </style>
 <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
 <script src="http://cdn.bootcss.com/materialize/0.97.0/js/materialize.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/javadeploy/detail.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/detail.js"></script>
 </head>
 <body style="font-family: 'Roboto', 'Droid Sans Fallback', '微软雅黑';">
 

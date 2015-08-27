@@ -12,5 +12,6 @@ CREATE TABLE `java_web_deploy` (
   `final_name` varchar(255) NOT NULL COMMENT 'final_name',
   `url` varchar(255) NOT NULL COMMENT 'svn/git地址',
   `context_path` varchar(255) NOT NULL COMMENT 'Web项目contextPath',
+  `port` int(11) NOT NULL COMMENT '端口号',
   PRIMARY KEY (`uuid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
