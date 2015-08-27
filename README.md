@@ -5,24 +5,24 @@ JDeploy自动化部署平台
 
 服务器环境：Linux（不支持Windows）
 
-1、创建数据库（MySQL）
+### 创建数据库（MySQL）
 运行SQL文件创建数据库：doc/sql.sql
 
-2、Shell脚本
+### Shell脚本
 JDeploy自动化部署平台是基于Shell脚本实现。
 Java项目部署Shell脚本：doc/shell/javadeploy
 Java Web项目部署Shell脚本：doc/shell/javawebdeploy
 Shell脚本的目录位置需要配置在`config.properties`中。
 
-3、Jetty
+### Jetty
 JDeploy自动化部署平台Java Web项目部署是基于Jetty服务器的。
 需要自行下载Jetty服务器，并在`config.properties`中配置Jetty目录下start.jar路径。
 
-4、配置文件
+### 配置文件
 配置文件：src/main/resources/config.properties
 需要配置数据库连接信息、Shell脚本位置、Jetty位置、项目部署位置。
 
-5、部署
+### 部署
 以上配置完成后，将项目部署在Jetty/Tomcat服务器上即可。
 
 ## Java项目部署
