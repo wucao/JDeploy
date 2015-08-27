@@ -20,6 +20,9 @@ public class JavaDeployService {
 	@Value("${shell.javadeploy}")
 	private String shellFileFolder;
 
+	@Value("${javadeploy.basepath}")
+	private String basePath;
+
 	public List<JavaDeployInfo> getList() {
 		return javaDeployMapper.getList();
 	}
@@ -50,9 +53,9 @@ public class JavaDeployService {
 			// kill进程
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			// 打包
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl()));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + basePath));
 			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName()));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName() + " " + basePath));
 
 			return sb.toString();
 		} else {
@@ -69,7 +72,7 @@ public class JavaDeployService {
 			// kill进程
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName()));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName() + " " + basePath));
 			return sb.toString();
 		} else {
 			return uuid + "对应的项目不存在！";
@@ -89,7 +92,7 @@ public class JavaDeployService {
 	public String showLog(String uuid) throws IOException {
 		JavaDeployInfo info = javaDeployMapper.getDetail(uuid);
 		if(info != null) {
-			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid());
+			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid() + " " + basePath);
 		} else {
 			return uuid + "对应的项目不存在！";
 		}

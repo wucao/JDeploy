@@ -22,6 +22,9 @@ public class JavaWebDeployService {
 	@Value("${shell.javawebdeploy}")
 	private String shellFileFolder;
 
+	@Value("${javawebdeploy.basepath}")
+	private String basePath;
+
 	@Value("${javawebdeploy.jettypath}")
 	private String jettyPath;
 
@@ -60,9 +63,9 @@ public class JavaWebDeployService {
 			if(contextPath.length() == 0) {
 				contextPath = "root";
 			}
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + info.getFinalName() + " " + contextPath));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + info.getFinalName() + " " + contextPath + " " + jettyPath + " " + basePath));
 			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath + " " + basePath));
 
 			return sb.toString();
 		} else {
@@ -79,7 +82,7 @@ public class JavaWebDeployService {
 			// kill进程
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath + " " + basePath));
 			return sb.toString();
 		} else {
 			return uuid + "对应的项目不存在！";
@@ -99,7 +102,7 @@ public class JavaWebDeployService {
 	public String showLog(String uuid) throws IOException {
 		JavaWebDeployInfo info = javaWebDeployMapper.getDetail(uuid);
 		if(info != null) {
-			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid());
+			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid() + " " + basePath);
 		} else {
 			return uuid + "对应的项目不存在！";
 		}

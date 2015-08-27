@@ -7,13 +7,14 @@
 # $2 SVN地址
 # $3 finalName
 # $4 contextPath
+# $5 Jetty的start.jar路径
+# $6 项目部署路径
 
-rm -rf /coder/deploy/$1
-mkdir -p /coder/deploy/$1
-cd /coder/deploy/$1
+rm -rf $6/$1
+mkdir -p $6/$1
+cd $6/$1
 svn checkout $2 .
 mvn clean package
 
-cd /coder/deploy/$1
-java -jar /coder/jetty/jetty-distribution-9.2.7.v20150116/start.jar --add-to-startd=http,deploy
+java -jar $5 --add-to-startd=http,deploy
 mv target/$3.war webapps/$4.war
