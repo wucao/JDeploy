@@ -10,16 +10,21 @@ JDeploy自动化部署平台
 
 ### Shell脚本
 JDeploy自动化部署平台是基于Shell脚本实现。
+
 Java项目部署Shell脚本：doc/shell/javadeploy
+
 Java Web项目部署Shell脚本：doc/shell/javawebdeploy
+
 Shell脚本的目录位置需要配置在`config.properties`中。
 
 ### Jetty
 JDeploy自动化部署平台Java Web项目部署是基于Jetty服务器的。
+
 需要自行下载Jetty服务器，并在`config.properties`中配置Jetty目录下start.jar路径。
 
 ### 配置文件
 配置文件：src/main/resources/config.properties
+
 需要配置数据库连接信息、Shell脚本位置、Jetty位置、项目部署位置。
 
 ### 部署
