@@ -82,7 +82,6 @@ public class JavaDeployService {
 	public String stop(String uuid) throws IOException {
 		JavaDeployInfo info = javaDeployMapper.getDetail(uuid);
 		if(info != null) {
-			StringBuilder sb = new StringBuilder();
 			return ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid());
 		} else {
 			return uuid + "对应的项目不存在！";

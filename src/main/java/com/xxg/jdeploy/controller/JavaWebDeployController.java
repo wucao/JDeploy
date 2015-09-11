@@ -1,8 +1,6 @@
 package com.xxg.jdeploy.controller;
 
-import com.xxg.jdeploy.domain.JavaDeployInfo;
 import com.xxg.jdeploy.domain.JavaWebDeployInfo;
-import com.xxg.jdeploy.service.JavaDeployService;
 import com.xxg.jdeploy.service.JavaWebDeployService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

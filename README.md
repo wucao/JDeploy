@@ -1,6 +1,8 @@
 # JDeploy
 JDeploy自动化部署平台
 
+JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项目部署平台，能部署Java服务、Java Web项目，可以简化项目部署操作，无需繁琐的黑窗口SSH指令及Jenkins复杂的配置。
+
 ## JDeploy自动化部署平台部署
 
 服务器环境：Linux（不支持Windows）
@@ -114,7 +116,7 @@ SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 ### 查看运行状态和显示日志
 可在“运行状态”面板中查看程序运行状态，点击“查看日志”可以查看程序在控制台输入的日志。可用浏览器访问http://ip:port/contextPath。
 
-### 对Java项目要求
+### 对Java Web项目要求
 DEMO：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 
 使用Maven管理项目，通过`mvn clean package`可以打成war包，创建项目时填写的finalName和pom.xml中的finalName一致。

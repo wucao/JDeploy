@@ -2,11 +2,8 @@ package com.xxg.jdeploy.controller;
 
 import com.xxg.jdeploy.domain.JavaDeployInfo;
 import com.xxg.jdeploy.service.JavaDeployService;
-import com.xxg.jdeploy.util.ShellUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

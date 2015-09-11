@@ -1,8 +1,6 @@
 package com.xxg.jdeploy.service;
 
-import com.xxg.jdeploy.domain.JavaDeployInfo;
 import com.xxg.jdeploy.domain.JavaWebDeployInfo;
-import com.xxg.jdeploy.mapper.JavaDeployMapper;
 import com.xxg.jdeploy.mapper.JavaWebDeployMapper;
 import com.xxg.jdeploy.util.ShellUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,7 +90,6 @@ public class JavaWebDeployService {
 	public String stop(String uuid) throws IOException {
 		JavaWebDeployInfo info = javaWebDeployMapper.getDetail(uuid);
 		if(info != null) {
-			StringBuilder sb = new StringBuilder();
 			return ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid());
 		} else {
 			return uuid + "对应的项目不存在！";
