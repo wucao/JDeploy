@@ -5,7 +5,7 @@ JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项�
 
 ## JDeploy自动化部署平台部署
 
-服务器环境：Linux（不支持Windows）
+服务器环境：Linux（不支持Windows），需要Java环境和Maven环境，支持`java`和`mvn`命令。
 
 ### 创建数据库（MySQL）
 运行SQL文件创建数据库：doc/sql.sql
