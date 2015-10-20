@@ -3,6 +3,14 @@ JDeploy自动化部署平台
 
 JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项目部署平台，能部署Java服务、Java Web项目，可以简化项目部署操作，无需繁琐的黑窗口SSH指令及Jenkins复杂的配置。
 
+![JDeploy](http://img.blog.csdn.net/20151020104553172)
+
+![JDeploy](http://img.blog.csdn.net/20151020104628193)
+
+![JDeploy](http://img.blog.csdn.net/20151020104709833)
+
+![JDeploy](http://img.blog.csdn.net/20151020105031597)
+
 ## JDeploy自动化部署平台部署
 
 服务器环境：Linux（不支持Windows），需要Java环境和Maven环境，支持`java`和`mvn`命令。
