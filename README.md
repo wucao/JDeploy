@@ -42,16 +42,11 @@ JDeploy自动化部署平台Java Web项目部署是基于Jetty服务器的。
 
 ## Java项目部署
 ### 新建项目
-在“Java项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“finalName”、“SVN地址”，例如：
+在“Java项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“SVN地址”，例如：
 
 项目名称：JDeploy测试Java项目
 
-finalName：javadeploy
-
 SVN地址：http://code.taobao.org/svn/jdploy_java_deploy_test/
-
-注：finalName需要填写部署的项目pom.xml中配置的finalName，如`<finalName>javadeploy</finalName>`
-
 
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。
@@ -65,7 +60,7 @@ SVN地址：http://code.taobao.org/svn/jdploy_java_deploy_test/
 ### 对Java项目要求
 DEMO：http://code.taobao.org/svn/jdploy_java_deploy_test/
 
-1、使用Maven管理项目，通过`mvn clean package`可以打可运行的jar包，创建项目时填写的finalName和pom.xml中的finalName一致。
+1、使用Maven管理项目，通过`mvn clean package`可以打可运行的jar包。
 
 2、jar包可以通过`java -jar xxx.jar`直接运行（包含依赖包，并配置好main方法所在Class）。
 
@@ -101,19 +96,15 @@ DEMO：http://code.taobao.org/svn/jdploy_java_deploy_test/
 
 ## Java Web项目部署
 ### 新建项目
-在“Java Web项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“finalName”、“contextPath”、“端口号”、“SVN地址”，例如：
+在“Java Web项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“contextPath”、“端口号”、“SVN地址”，例如：
 
 项目名称：JDeploy测试Java Web项目
-
-finalName：javawebdeploy
 
 contextPath：/jdploytest（也可以填写'/'）
 
 端口号：8080
 
 SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
-
-注：finalName需要填写部署的项目pom.xml中配置的finalName，如`<finalName>javawebdeploy</finalName>`
 
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。
@@ -127,4 +118,4 @@ SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 ### 对Java Web项目要求
 DEMO：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 
-使用Maven管理项目，通过`mvn clean package`可以打成war包，创建项目时填写的finalName和pom.xml中的finalName一致。
+使用Maven管理项目，通过`mvn clean package`可以打成war包。

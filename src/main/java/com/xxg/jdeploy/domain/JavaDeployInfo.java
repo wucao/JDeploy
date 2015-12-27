@@ -7,7 +7,6 @@ public class JavaDeployInfo {
 
     private String uuid;
     private String name;
-    private String finalName;
     private String url;
 
     public String getUuid() {
@@ -24,14 +23,6 @@ public class JavaDeployInfo {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getFinalName() {
-        return finalName;
-    }
-
-    public void setFinalName(String finalName) {
-        this.finalName = finalName;
     }
 
     public String getUrl() {

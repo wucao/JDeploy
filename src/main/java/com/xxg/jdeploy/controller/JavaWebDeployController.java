@@ -38,11 +38,11 @@ public class JavaWebDeployController {
 	 * 添加项目请求
 	 */
 	@RequestMapping(value = "insert", method = RequestMethod.POST)
-	public String insert(JavaWebDeployInfo javaWebDeployInfo, HttpServletRequest request) {
+	public String insert(JavaWebDeployInfo javaWebDeployInfo) {
 		String uuid = UUID.randomUUID().toString();
 		javaWebDeployInfo.setUuid(uuid);
 		javaWebDeployService.insert(javaWebDeployInfo);
-		return "redirect:" + request.getContextPath() + "/javawebdeploy/detail/" + uuid;
+		return "redirect:/javawebdeploy/detail/" + uuid;
 	}
 
 	/**

@@ -7,7 +7,6 @@ public class JavaWebDeployInfo {
 
     private String uuid;
     private String name;
-    private String finalName;
     private String url;
     private String contextPath;
     private int port;
@@ -26,14 +25,6 @@ public class JavaWebDeployInfo {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getFinalName() {
-        return finalName;
-    }
-
-    public void setFinalName(String finalName) {
-        this.finalName = finalName;
     }
 
     public String getUrl() {

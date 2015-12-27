@@ -3,11 +3,14 @@ package com.xxg.jdeploy.service;
 import com.xxg.jdeploy.domain.JavaWebDeployInfo;
 import com.xxg.jdeploy.mapper.JavaWebDeployMapper;
 import com.xxg.jdeploy.util.ShellUtil;
+
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -61,10 +64,16 @@ public class JavaWebDeployService {
 			if(contextPath.length() == 0) {
 				contextPath = "root";
 			}
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + info.getFinalName() + " " + contextPath + " " + jettyPath + " " + basePath));
-			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath + " " + basePath));
-
+			
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + jettyPath + " " + basePath));
+			String finalName = getFinalName(info.getUuid());
+			if(finalName != null) {
+				FileUtils.copyFile(new File(basePath + "/" + info.getUuid() + "/target/" + finalName), new File(basePath + "/" + info.getUuid() + "/webapps/" + contextPath + ".war"));
+				// 启动程序
+				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath + " " + basePath));
+			} else {
+				sb.append("打包失败");
+			}
 			return sb.toString();
 		} else {
 			return uuid + "对应的项目不存在！";
@@ -103,5 +112,19 @@ public class JavaWebDeployService {
 		} else {
 			return uuid + "对应的项目不存在！";
 		}
+	}
+	
+	private String getFinalName(String uuid) {
+		File dir = new File(basePath + "/" + uuid + "/target");
+		File[] files = dir.listFiles();
+		
+		String fileName = null;
+		for(File file : files) {
+			String name = file.getName();
+			if(file.isFile() && name.endsWith(".war")) {
+				fileName = name;
+			}
+		}
+		return fileName;
 	}
 }

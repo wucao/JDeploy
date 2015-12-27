@@ -32,13 +32,9 @@
 							<span class="card-title black-text">新建项目</span>
 
 								<div class="row">
-									<div class="input-field col s6">
+									<div class="input-field col s12">
 										<input type="text" id="input-name" name="name">
 										<label for="input-name">项目名称</label>
-									</div>
-									<div class="input-field col s6">
-										<input type="text" id="input-finalname" name="finalName">
-										<label for="input-finalname">finalName</label>
 									</div>
 									<div class="input-field col s12">
 										<input type="text" id="input-url" name="url">

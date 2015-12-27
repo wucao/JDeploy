@@ -11,4 +11,4 @@ rm -rf $3/$1
 mkdir -p $3/$1
 cd $3/$1
 svn checkout $2 .
-mvn clean package
+mvn clean package -Dmaven.test.skip=true

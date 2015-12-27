@@ -1,11 +1,13 @@
 package com.xxg.jdeploy.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import com.xxg.jdeploy.domain.JavaDeployInfo;
 import com.xxg.jdeploy.mapper.JavaDeployMapper;
 import com.xxg.jdeploy.util.ShellUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -54,8 +56,13 @@ public class JavaDeployService {
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			// 打包
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + basePath));
-			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName() + " " + basePath));
+			String finalName = getFinalName(info.getUuid());
+			if(finalName != null) {
+				// 启动程序
+				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath));
+			} else {
+				sb.append("打包失败");
+			}
 
 			return sb.toString();
 		} else {
@@ -71,8 +78,13 @@ public class JavaDeployService {
 			StringBuilder sb = new StringBuilder();
 			// kill进程
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
-			// 启动程序
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getFinalName() + " " + basePath));
+			String finalName = getFinalName(info.getUuid());
+			if(finalName != null) {
+				// 启动程序
+				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath));
+			} else {
+				sb.append("找不到程序包，请重新部署");
+			}
 			return sb.toString();
 		} else {
 			return uuid + "对应的项目不存在！";
@@ -95,5 +107,23 @@ public class JavaDeployService {
 		} else {
 			return uuid + "对应的项目不存在！";
 		}
+	}
+	
+	private String getFinalName(String uuid) {
+		File dir = new File(basePath + "/" + uuid + "/target");
+		File[] files = dir.listFiles();
+		
+		String fileName = null;
+		long size = 0;
+		for(File file : files) {
+			String name = file.getName();
+			if(file.isFile() && name.endsWith(".jar")) {
+				if(file.length() > size) {
+					fileName = name;
+					size = file.length();
+				}
+			}
+		}
+		return fileName;
 	}
 }

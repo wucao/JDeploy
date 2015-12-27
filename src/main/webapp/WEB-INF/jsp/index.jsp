@@ -58,7 +58,6 @@
 					<tr>
 						<td>项目名称</td>
 						<td>UUID</td>
-						<td>finalName</td>
 						<td>详情</td>
 					</tr>
 				</thead>
@@ -67,7 +66,6 @@
 						<tr>
 							<td>${item.name}</td>
 							<td>${item.uuid}</td>
-							<td>${item.finalName}</td>
 							<td><a href="${pageContext.request.contextPath}/javadeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
 						</tr>
 					</c:forEach>
@@ -101,7 +99,6 @@
 				<tr>
 					<td>项目名称</td>
 					<td>UUID</td>
-					<td>finalName</td>
 					<td>contextPath</td>
 					<td>端口号</td>
 					<td>详情</td>
@@ -112,7 +109,6 @@
 					<tr>
 						<td>${item.name}</td>
 						<td>${item.uuid}</td>
-						<td>${item.finalName}</td>
 						<td>${item.contextPath}</td>
 						<td>${item.port}</td>
 						<td><a href="${pageContext.request.contextPath}/javawebdeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>

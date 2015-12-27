@@ -86,7 +86,6 @@
 						<span class="card-title red-text">${detail.name}</span>
 						<p>名称：${detail.name}</p>
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
-						<p>finalName：${detail.finalName}</p>
 						<p>SVN地址：${detail.url}</p>
 					</div>
 					<div class="card-action">
