@@ -17,5 +17,8 @@
 
 	<!-- 数据库配置 -->
 	<import resource="mybatis.xml" />
+	
+	<!-- Spring Security -->
+	<import resource="springSecurity.xml" />
 
 </beans>
