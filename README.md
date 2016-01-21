@@ -1,7 +1,7 @@
 # JDeploy
 JDeploy自动化部署平台
 
-JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项目部署平台，能部署Java服务、Java Web项目，可以简化项目部署操作，无需繁琐的黑窗口SSH指令及Jenkins复杂的配置。
+JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项目部署平台，能部署Java服务、Java Web项目，可以简化项目部署操作，无需繁琐的黑窗口SSH指令及Jenkins复杂的配置，只需要提供SVN/GIT地址即可部署项目。
 
 ![JDeploy](http://img.blog.csdn.net/20151020104553172)
 
@@ -13,7 +13,7 @@ JDeploy是Java + Shell实现的基于Linux系统的自动化、可视化的项�
 
 ## JDeploy自动化部署平台部署
 
-服务器环境：Linux（不支持Windows），需要Java环境和Maven环境，支持`java`和`mvn`命令。
+服务器环境：Linux（不支持Windows），需要Java环境和Maven环境，支持`java`、`mvn`、`svn`、`git`命令。
 
 ### 创建数据库（MySQL）
 运行SQL文件创建数据库：doc/sql.sql
@@ -119,3 +119,8 @@ SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 DEMO：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 
 使用Maven管理项目，通过`mvn clean package`可以打成war包。
+
+## SVN/GIT配置用户密码
+如果SVN需要用户密码访问，可以这样配置：http://code.taobao.org/svn/test/trunk --username yourusername --password yourpassword
+
+如果GIT需要用户密码访问，可以这样配置：https://yourusername:yourpassword@git.coding.net/wucao/test.git
