@@ -8,13 +8,13 @@ import java.util.List;
 
 public interface JavaWebDeployMapper {
 
-	@Select("select uuid,name,url,context_path as contextPath,port from java_web_deploy")
+	@Select("select uuid,name,url,context_path as contextPath,port,type from java_web_deploy")
 	List<JavaWebDeployInfo> getList();
 
-	@Select("select uuid,name,url,context_path as contextPath,port from java_web_deploy where uuid=#{uuid}")
+	@Select("select uuid,name,url,context_path as contextPath,port,type from java_web_deploy where uuid=#{uuid}")
 	JavaWebDeployInfo getDetail(String uuid);
 
-	@Insert("insert into java_web_deploy (uuid,name,url,context_path,port) values (#{uuid},#{name},#{url},#{contextPath},#{port})")
+	@Insert("insert into java_web_deploy (uuid,name,url,context_path,port,type) values (#{uuid},#{name},#{url},#{contextPath},#{port},#{type})")
 	void insert(JavaWebDeployInfo javaWebDeployInfo);
 
 }

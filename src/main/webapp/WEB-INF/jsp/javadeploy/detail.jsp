@@ -86,7 +86,12 @@
 						<span class="card-title red-text">${detail.name}</span>
 						<p>名称：${detail.name}</p>
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
+						<c:if test="${detail.type == 1}">
 						<p>SVN地址：${detail.url}</p>
+						</c:if>
+						<c:if test="${detail.type == 2}">
+						<p>GIT地址：${detail.url}</p>
+						</c:if>
 					</div>
 					<div class="card-action">
 						<p>

@@ -8,13 +8,13 @@ import org.apache.ibatis.annotations.Select;
 
 public interface JavaDeployMapper {
 
-	@Select("select uuid,name,url from java_deploy")
+	@Select("select uuid,name,url,type from java_deploy")
 	List<JavaDeployInfo> getList();
 
-	@Select("select uuid,name,url from java_deploy where uuid=#{uuid}")
+	@Select("select uuid,name,url,type from java_deploy where uuid=#{uuid}")
 	JavaDeployInfo getDetail(String uuid);
 
-	@Insert("insert into java_deploy (uuid,name,url) values (#{uuid},#{name},#{url})")
+	@Insert("insert into java_deploy (uuid,name,url,type) values (#{uuid},#{name},#{url},#{type})")
 	void insert(JavaDeployInfo javaDeployInfo);
 
 }

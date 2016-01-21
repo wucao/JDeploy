@@ -38,7 +38,13 @@
 									</div>
 									<div class="input-field col s12">
 										<input type="text" id="input-url" name="url">
-										<label for="input-url">SVN地址</label>
+										<label for="input-url">SVN/GIT地址</label>
+									</div>
+									<div class="input-field col s12">
+										<input class="with-gap" name="type" type="radio" id="input-svn" checked="checked" value="1" />
+										<label for="input-svn">SVN</label>
+										<input class="with-gap" name="type" type="radio" id="input-git"  value="2" />
+										<label for="input-git">GIT</label>
 									</div>
 								</div>
 

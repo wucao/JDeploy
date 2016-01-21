@@ -65,7 +65,7 @@ public class JavaWebDeployService {
 				contextPath = "root";
 			}
 			
-			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + jettyPath + " " + basePath));
+			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/package.sh " + info.getUuid() + " " + info.getUrl() + " " + jettyPath + " " + basePath + " " + info.getType()));
 			String finalName = getFinalName(info.getUuid());
 			if(finalName != null) {
 				FileUtils.copyFile(new File(basePath + "/" + info.getUuid() + "/target/" + finalName), new File(basePath + "/" + info.getUuid() + "/webapps/" + contextPath + ".war"));

@@ -7,6 +7,7 @@ public class JavaWebDeployInfo {
 
     private String uuid;
     private String name;
+    private int type;
     private String url;
     private String contextPath;
     private int port;
@@ -15,7 +16,15 @@ public class JavaWebDeployInfo {
         return uuid;
     }
 
-    public void setUuid(String uuid) {
+    public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public void setUuid(String uuid) {
         this.uuid = uuid;
     }
 

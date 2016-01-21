@@ -88,7 +88,12 @@
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
 						<p>contextPath：${detail.contextPath}</p>
 						<p>端口号：${detail.port}</p>
+						<c:if test="${detail.type == 1}">
 						<p>SVN地址：${detail.url}</p>
+						</c:if>
+						<c:if test="${detail.type == 2}">
+						<p>GIT地址：${detail.url}</p>
+						</c:if>
 					</div>
 					<div class="card-action">
 						<p>
