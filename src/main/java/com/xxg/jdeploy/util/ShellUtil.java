@@ -13,9 +13,13 @@ import java.io.IOException;
  */
 public class ShellUtil {
 
-	public static String exec(String cmd) throws IOException {
+	public static String exec(String... cmd) throws IOException {
 		
-		CommandLine cmdLine = CommandLine.parse(cmd);
+		CommandLine cmdLine = CommandLine.parse(cmd[0]);
+		for(int i = 1; i < cmd.length; i++) {
+			cmdLine.addArgument(cmd[i], false);
+		}
+		
 		DefaultExecutor executor = new DefaultExecutor();
 
 		// 防止抛出异常
