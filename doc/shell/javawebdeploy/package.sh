@@ -14,4 +14,4 @@ cd $4/$1
 svn checkout $2 .
 mvn clean package -Dmaven.test.skip=true
 
-java -jar $3 --add-to-startd=http,deploy
+java -jar $3 --add-to-startd=http,deploy,jsp
