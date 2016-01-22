@@ -40,6 +40,9 @@ JDeploy自动化部署平台Java Web项目部署是基于Jetty服务器的。
 ### 部署
 以上配置完成后，将项目部署在Jetty/Tomcat服务器上即可。
 
+### 登录JDeploy
+部署成功后，默认登录用户名：xxg，密码：test1234。JDeploy使用Spring Security登录验证，配置文件：src/main/resources/springSecurity.xml，可以根据部署需求灵活配置。可参考博客：http://xxgblog.com/2015/09/06/spring-security-start/
+
 ## Java项目部署
 ### 新建项目
 在“Java项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“SVN地址”，例如：
