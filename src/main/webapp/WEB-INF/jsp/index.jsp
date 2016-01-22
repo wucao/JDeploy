@@ -14,7 +14,7 @@
 <script src="http://cdn.bootcss.com/materialize/0.97.0/js/materialize.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
 </head>
-<body style="font-family: 'Roboto', 'Droid Sans Fallback', '微软雅黑';">
+<body style="font-family: 'Roboto', 'Droid Sans Fallback', '微软雅黑'; min-height: 100vh;display: flex;flex-direction: column;">
 
 	<nav>
 		<div class="nav-wrapper">
@@ -22,7 +22,7 @@
 		</div>
 	</nav>
 
-	<div class="container" style="padding-top: 20px; width: 90%;">
+	<div class="container" style="padding-top: 20px; width: 90%;flex: 1 0 auto;">
 		<div class="row">
 			<div class="col s12">
 				<ul class="tabs">
@@ -119,6 +119,15 @@
 		</div>
 		
 	</div>
+	
+	<footer class="page-footer" style="padding-top: 0; margin-top: 40px;">
+      <div class="footer-copyright">
+        <div class="container">
+        Copyright © 2016 <a class="grey-text text-lighten-4" href="http://xxgblog.com" target="_blank">http://xxgblog.com</a>. All rights reserved.
+        <a class="grey-text text-lighten-4 right" href="https://github.com/wucao/JDeploy" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </footer>
 	
 </body>
 </html>
