@@ -15,6 +15,9 @@
 
     <!-- 自动加载Controller -->
     <context:component-scan base-package="com.xxg.jdeploy.controller" />
+    
+    <!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:config.properties"/>
 
     <!-- jsp视图路径配置 -->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

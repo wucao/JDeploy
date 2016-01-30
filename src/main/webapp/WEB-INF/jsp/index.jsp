@@ -26,97 +26,113 @@
 		<div class="row">
 			<div class="col s12">
 				<ul class="tabs">
-					<li class="tab col s6"><a href="#java-deploy">Java项目部署</a></li>
-					<li class="tab col s6"><a href="#java-web-deploy">Java Web项目部署</a></li>
+					<c:forEach var="item" items="${moduleList}">
+						<c:if test="${item == 'java'}">
+							<li class="tab col s6"><a href="#java-deploy">Java项目部署</a></li>
+						</c:if>
+					</c:forEach>
+					<c:forEach var="item" items="${moduleList}">
+						<c:if test="${item == 'javaweb'}">
+							<li class="tab col s6"><a href="#java-web-deploy">Java Web项目部署</a></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 			</div>
 		</div>
 		
-		<div id="java-deploy">
-			<div class="row">
-				<div class="input-field col s12 m6 offset-m2">
-					<nav>
-						<div class="nav-wrapper">
-							<form>
-								<div class="input-field">
-									<input id="java-deploy-search" type="search">
-									<label for="java-deploy-search">
-										<i class="material-icons" style="line-height: inherit;">search</i>
-									</label>
-									<i class="material-icons">close</i>
+		<c:forEach var="item" items="${moduleList}">
+			<c:if test="${item == 'java'}">
+				<div id="java-deploy">
+					<div class="row">
+						<div class="input-field col s12 m6 offset-m2">
+							<nav>
+								<div class="nav-wrapper">
+									<form>
+										<div class="input-field">
+											<input id="java-deploy-search" type="search">
+											<label for="java-deploy-search">
+												<i class="material-icons" style="line-height: inherit;">search</i>
+											</label>
+											<i class="material-icons">close</i>
+										</div>
+									</form>
 								</div>
-							</form>
+							</nav>
 						</div>
-					</nav>
+						<div class="input-field col s12 m4">
+							<a class="waves-effect waves-light btn red lighten-2" href="${pageContext.request.contextPath}/javadeploy/new" style="line-height: 64px; height: 64px;">创建</a>
+						</div>
+					</div>
+					<table class="hoverable">
+						<thead>
+							<tr>
+								<td>项目名称</td>
+								<td>UUID</td>
+								<td>详情</td>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="item" items="${javaDeployList}">
+								<tr>
+									<td>${item.name}</td>
+									<td>${item.uuid}</td>
+									<td><a href="${pageContext.request.contextPath}/javadeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
-				<div class="input-field col s12 m4">
-					<a class="waves-effect waves-light btn red lighten-2" href="${pageContext.request.contextPath}/javadeploy/new" style="line-height: 64px; height: 64px;">创建</a>
-				</div>
-			</div>
-			<table class="hoverable">
-				<thead>
-					<tr>
-						<td>项目名称</td>
-						<td>UUID</td>
-						<td>详情</td>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="item" items="${javaDeployList}">
-						<tr>
-							<td>${item.name}</td>
-							<td>${item.uuid}</td>
-							<td><a href="${pageContext.request.contextPath}/javadeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
+			</c:if>
+		</c:forEach>
 		
-		<div id="java-web-deploy" class="row">
-			<div class="row">
-				<div class="input-field col s12 m6 offset-m2">
-					<nav>
-						<div class="nav-wrapper">
-							<form>
-								<div class="input-field">
-									<input id="java-web-deploy-search" type="search">
-									<label for="java-web-deploy-search">
-										<i class="material-icons" style="line-height: inherit;">search</i>
-									</label>
-									<i class="material-icons">close</i>
+		<c:forEach var="item" items="${moduleList}">
+			<c:if test="${item == 'javaweb'}">
+				<div id="java-web-deploy" class="row">
+					<div class="row">
+						<div class="input-field col s12 m6 offset-m2">
+							<nav>
+								<div class="nav-wrapper">
+									<form>
+										<div class="input-field">
+											<input id="java-web-deploy-search" type="search">
+											<label for="java-web-deploy-search">
+												<i class="material-icons" style="line-height: inherit;">search</i>
+											</label>
+											<i class="material-icons">close</i>
+										</div>
+									</form>
 								</div>
-							</form>
+							</nav>
 						</div>
-					</nav>
+						<div class="input-field col s12 m4">
+							<a class="waves-effect waves-light btn red lighten-2" href="${pageContext.request.contextPath}/javawebdeploy/new" style="line-height: 64px; height: 64px;">创建</a>
+						</div>
+					</div>
+					<table class="hoverable">
+						<thead>
+						<tr>
+							<td>项目名称</td>
+							<td>UUID</td>
+							<td>contextPath</td>
+							<td>端口号</td>
+							<td>详情</td>
+						</tr>
+						</thead>
+						<tbody>
+						<c:forEach var="item" items="${javaWebDeployList}">
+							<tr>
+								<td>${item.name}</td>
+								<td>${item.uuid}</td>
+								<td>${item.contextPath}</td>
+								<td>${item.port}</td>
+								<td><a href="${pageContext.request.contextPath}/javawebdeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
 				</div>
-				<div class="input-field col s12 m4">
-					<a class="waves-effect waves-light btn red lighten-2" href="${pageContext.request.contextPath}/javawebdeploy/new" style="line-height: 64px; height: 64px;">创建</a>
-				</div>
-			</div>
-			<table class="hoverable">
-				<thead>
-				<tr>
-					<td>项目名称</td>
-					<td>UUID</td>
-					<td>contextPath</td>
-					<td>端口号</td>
-					<td>详情</td>
-				</tr>
-				</thead>
-				<tbody>
-				<c:forEach var="item" items="${javaWebDeployList}">
-					<tr>
-						<td>${item.name}</td>
-						<td>${item.uuid}</td>
-						<td>${item.contextPath}</td>
-						<td>${item.port}</td>
-						<td><a href="${pageContext.request.contextPath}/javawebdeploy/detail/${item.uuid}" class="btn waves-effect waves-light red lighten-2">详情</a></td>
-					</tr>
-				</c:forEach>
-				</tbody>
-			</table>
-		</div>
+			</c:if>
+		</c:forEach>
 		
 	</div>
 	
