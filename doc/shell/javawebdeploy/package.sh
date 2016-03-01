@@ -22,4 +22,4 @@ fi
 
 mvn clean package -Dmaven.test.skip=true
 
-java -jar $3 --add-to-startd=http,deploy,jsp
+java -jar $3 --add-to-startd=http,deploy,jsp,websocket
