@@ -45,11 +45,13 @@ JDeploy自动化部署平台Java Web项目部署是基于Jetty服务器的。
 
 ## Java项目部署
 ### 新建项目
-在“Java项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“SVN地址”，例如：
+在“Java项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“SVN/GIT地址”、“Maven profile”，例如：
 
 项目名称：JDeploy测试Java项目
 
 SVN地址：http://code.taobao.org/svn/jdploy_java_deploy_test/
+
+Maven profile：Maven打包时使用的pom.xml中的profile，如果不需要可以为空
 
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。
@@ -99,7 +101,7 @@ DEMO：http://code.taobao.org/svn/jdploy_java_deploy_test/
 
 ## Java Web项目部署
 ### 新建项目
-在“Java Web项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“contextPath”、“端口号”、“SVN地址”，例如：
+在“Java Web项目部署”选项中点击“创建”按钮，进入创建页面。需要填写“项目名称”、“contextPath”、“端口号”、“SVN/GIT地址”、“Maven profile”，例如：
 
 项目名称：JDeploy测试Java Web项目
 
@@ -108,6 +110,8 @@ contextPath：/jdploytest（也可以填写'/'）
 端口号：8080
 
 SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
+
+Maven profile：Maven打包时使用的pom.xml中的profile，如果不需要可以为空
 
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。
