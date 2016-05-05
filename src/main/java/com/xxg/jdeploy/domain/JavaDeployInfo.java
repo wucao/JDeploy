@@ -9,8 +9,17 @@ public class JavaDeployInfo {
     private String name;
     private int type;
     private String url;
+    private String profile;
 
-    public String getUuid() {
+    public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
+
+	public String getUuid() {
         return uuid;
     }
 

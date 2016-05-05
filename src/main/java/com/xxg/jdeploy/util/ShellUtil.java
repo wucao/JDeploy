@@ -4,6 +4,7 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteWatchdog;
 import org.apache.commons.exec.PumpStreamHandler;
+import org.springframework.util.StringUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -17,7 +18,8 @@ public class ShellUtil {
 		
 		CommandLine cmdLine = CommandLine.parse(cmd[0]);
 		for(int i = 1; i < cmd.length; i++) {
-			cmdLine.addArgument(cmd[i], false);
+			if(StringUtils.hasText(cmd[i]))
+				cmdLine.addArgument(cmd[i], false);
 		}
 		
 		DefaultExecutor executor = new DefaultExecutor();

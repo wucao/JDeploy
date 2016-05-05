@@ -11,10 +11,10 @@ public interface JavaDeployMapper {
 	@Select("select uuid,name,url,type from java_deploy")
 	List<JavaDeployInfo> getList();
 
-	@Select("select uuid,name,url,type from java_deploy where uuid=#{uuid}")
+	@Select("select uuid,name,url,type,profile from java_deploy where uuid=#{uuid}")
 	JavaDeployInfo getDetail(String uuid);
 
-	@Insert("insert into java_deploy (uuid,name,url,type) values (#{uuid},#{name},#{url},#{type})")
+	@Insert("insert into java_deploy (uuid,name,url,type,profile) values (#{uuid},#{name},#{url},#{type},#{profile})")
 	void insert(JavaDeployInfo javaDeployInfo);
 
 }

@@ -55,7 +55,7 @@ public class JavaDeployService {
 			// kill进程
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			// 打包
-			String[] cmdArray = {"sh", shellFileFolder + "/package.sh", info.getUuid(), info.getUrl(), basePath, String.valueOf(info.getType())};
+			String[] cmdArray = {"sh", shellFileFolder + "/package.sh", info.getUuid(), info.getUrl(), basePath, String.valueOf(info.getType()), info.getProfile()};
 			sb.append(ShellUtil.exec(cmdArray));
 			String finalName = getFinalName(info.getUuid());
 			if(finalName != null) {

@@ -11,6 +11,15 @@ public class JavaWebDeployInfo {
     private String url;
     private String contextPath;
     private int port;
+    private String profile;
+
+    public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
+	}
 
     public String getUuid() {
         return uuid;

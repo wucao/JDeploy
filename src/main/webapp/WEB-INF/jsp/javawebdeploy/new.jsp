@@ -32,9 +32,13 @@
 							<span class="card-title black-text">新建项目</span>
 
 								<div class="row">
-									<div class="input-field col s12">
+									<div class="input-field col s6">
 										<input type="text" id="input-name" name="name">
 										<label for="input-name">项目名称</label>
+									</div>
+									<div class="input-field col s6">
+										<input type="text" id="input-profile" name="profile">
+										<label for="input-profile">Maven profile</label>
 									</div>
 									<div class="input-field col s6">
 										<input type="text" id="input-contextpath" name="contextPath">

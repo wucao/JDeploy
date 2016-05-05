@@ -86,6 +86,7 @@
 						<span class="card-title red-text">${detail.name}</span>
 						<p>名称：${detail.name}</p>
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
+						<p>Maven profile：${detail.profile}</p>
 						<c:if test="${detail.type == 1}">
 						<p>SVN地址：${detail.url}</p>
 						</c:if>
