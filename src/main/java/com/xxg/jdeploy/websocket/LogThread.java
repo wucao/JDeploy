@@ -27,12 +27,9 @@ public class LogThread implements Runnable {
 
     public void close() throws IOException {
         try {
-            System.out.println("start closing");
             reader.close();
-            System.out.println("Stream closed");
         } finally {
             process.destroy();
-            System.out.println("Process destroyed");
         }
     }
 
