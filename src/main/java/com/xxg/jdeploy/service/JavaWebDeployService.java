@@ -109,9 +109,9 @@ public class JavaWebDeployService {
 	public String showLog(String uuid) throws IOException {
 		JavaWebDeployInfo info = javaWebDeployMapper.getDetail(uuid);
 		if(info != null) {
-			return ShellUtil.exec("sh " + shellFileFolder + "/showlog.sh " + info.getUuid() + " " + basePath);
+			return "sh " + shellFileFolder + "/showlog.sh " + info.getUuid() + " " + basePath;
 		} else {
-			return uuid + "对应的项目不存在！";
+			return "echo \"对应的项目不存在！\"";
 		}
 	}
 	

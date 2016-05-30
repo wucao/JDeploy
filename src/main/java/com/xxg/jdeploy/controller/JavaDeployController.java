@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.HtmlUtils;
 
 import java.io.IOException;
 import java.util.UUID;
@@ -69,7 +70,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "deploy", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxDeploy(String uuid) throws IOException {
-		return javaDeployService.deploy(uuid);
+		return HtmlUtils.htmlEscape(javaDeployService.deploy(uuid));
 	}
 	
 	/**
@@ -78,7 +79,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "restart", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxRestart(String uuid) throws IOException {
-		return javaDeployService.restart(uuid);
+		return HtmlUtils.htmlEscape(javaDeployService.restart(uuid));
 	}
 	
 	/**
@@ -87,16 +88,7 @@ public class JavaDeployController {
 	@ResponseBody
 	@RequestMapping(value = "stop", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
 	public String ajaxStop(String uuid) throws IOException {
-		return javaDeployService.stop(uuid);
-	}
-
-	/**
-	 * ajax查看日志
-	 */
-	@ResponseBody
-	@RequestMapping(value = "log", produces = "text/plain;charset=UTF-8", method = RequestMethod.POST)
-	public String ajaxShowLog(String uuid) throws IOException {
-		return javaDeployService.showLog(uuid);
+		return HtmlUtils.htmlEscape(javaDeployService.stop(uuid));
 	}
 
 }

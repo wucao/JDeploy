@@ -10,6 +10,11 @@
 # $5 版本控制系统(1.SVN;2.GIT)
 # $6 Maven profile
 
+if [ -z "$1" ]||[ -z "$4" ]; then
+    echo "参数不能为空"
+    exit 0
+fi
+
 rm -rf $4/$1
 mkdir -p $4/$1
 cd $4/$1

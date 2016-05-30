@@ -118,7 +118,7 @@
 							</p>
 						</div>
 						<div class="card-action">
-							<a href="#" class="btn-showlog">查看日志</a>
+							<a href="#" class="btn-showlog" data-wsurl="ws://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/log?uuid=${detail.uuid}&type=javaweb">查看日志</a>
 						</div>
 					</div>
 				</div>

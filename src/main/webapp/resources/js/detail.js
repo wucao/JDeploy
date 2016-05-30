@@ -28,7 +28,23 @@ $(document).ready(function() {
 
 	// 查看日志
 	$(".btn-showlog").click(function () {
-		ajaxShell("../log", {uuid: uuid});
+
+		var url = $(this).attr("data-wsurl");
+		var websocket = new WebSocket(url);
+		websocket.onmessage = function(event) {
+			var msg = event.data;
+			$("#layer-modal .modal-content>div").append(msg);
+			$("#layer-modal .modal-content").scrollTop($("#layer-modal .modal-content>div").height() - $("#layer-modal .modal-content").height());
+		};
+
+		$("#layer-modal .modal-content").html("<div></div>");
+		$("#layer-modal").openModal({
+			dismissible: false,
+			complete: function () {
+				websocket.close();
+			}
+		});
+
 	});
 
 

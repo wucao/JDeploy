@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -9,7 +10,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/websocket
+        http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
     <mvc:annotation-driven />
 
@@ -27,5 +30,15 @@
 
     <!-- 静态资源可直接访问 -->
     <mvc:default-servlet-handler />
+
+    <!-- WebSocket -->
+    <websocket:handlers>
+        <websocket:mapping path="/log" handler="logWebSocketHandle" />
+    </websocket:handlers>
+    <bean id="logWebSocketHandle" class="com.xxg.jdeploy.websocket.LogWebSocketHandle" />
+    <bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="0" />
+        <property name="queueCapacity" value="0" />
+    </bean>
 
 </beans>
