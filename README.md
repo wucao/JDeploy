@@ -53,6 +53,8 @@ SVN地址：http://code.taobao.org/svn/jdploy_java_deploy_test/
 
 Maven profile：Maven打包时使用的pom.xml中的profile，如果不需要可以为空
 
+Maven module：使用Maven模块化项目是部署模块的模块名，非模块化项目可以为空
+
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。
 
@@ -112,6 +114,8 @@ contextPath：/jdploytest（也可以填写'/'）
 SVN地址：http://code.taobao.org/svn/jdploy_javaweb_deploy_test/
 
 Maven profile：Maven打包时使用的pom.xml中的profile，如果不需要可以为空
+
+Maven module：使用Maven模块化项目是部署模块的模块名，非模块化项目可以为空
 
 ### 部署项目
 在项目详情页面点击“部署”按钮，会从SVN中检出最新版本代码，并打包运行。

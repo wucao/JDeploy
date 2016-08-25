@@ -10,6 +10,15 @@ public class JavaDeployInfo {
     private int type;
     private String url;
     private String profile;
+    private String module;
+
+    public String getModule() {
+        return module;
+    }
+
+    public void setModule(String module) {
+        this.module = module;
+    }
 
     public String getProfile() {
 		return profile;

@@ -87,6 +87,7 @@
 						<p>名称：${detail.name}</p>
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
 						<p>Maven profile：${detail.profile}</p>
+						<p>Maven module：${detail.module}</p>
 						<p>contextPath：${detail.contextPath}</p>
 						<p>端口号：${detail.port}</p>
 						<c:if test="${detail.type == 1}">

@@ -87,6 +87,7 @@
 						<p>名称：${detail.name}</p>
 						<p>UUID：<span id="text-uuid">${detail.uuid}</span></p>
 						<p>Maven profile：${detail.profile}</p>
+						<p>Maven module：${detail.module}</p>
 						<c:if test="${detail.type == 1}">
 						<p>SVN地址：${detail.url}</p>
 						</c:if>

@@ -59,8 +59,12 @@ public class JavaDeployService {
 			sb.append(ShellUtil.exec(cmdArray));
 			String finalName = getFinalName(info.getUuid());
 			if(finalName != null) {
+				String module = "";
+				if(StringUtils.hasText(info.getModule())) {
+					module = module + '/';
+				}
 				// 启动程序
-				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath));
+				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath + " " + module));
 			} else {
 				sb.append("打包失败");
 			}
@@ -81,8 +85,12 @@ public class JavaDeployService {
 			sb.append(ShellUtil.exec("sh " + shellFileFolder + "/kill.sh " + info.getUuid()));
 			String finalName = getFinalName(info.getUuid());
 			if(finalName != null) {
+				String module = "";
+				if(StringUtils.hasText(info.getModule())) {
+					module = module + '/';
+				}
 				// 启动程序
-				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath));
+				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + finalName + " " + basePath + " " + module));
 			} else {
 				sb.append("找不到程序包，请重新部署");
 			}

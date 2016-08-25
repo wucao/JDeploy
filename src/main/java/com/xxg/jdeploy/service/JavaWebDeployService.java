@@ -67,9 +67,15 @@ public class JavaWebDeployService {
 			
 			String[] cmdArray = {"sh", shellFileFolder + "/package.sh", info.getUuid(), info.getUrl(), jettyPath, basePath, String.valueOf(info.getType()), info.getProfile()};
 			sb.append(ShellUtil.exec(cmdArray));
-			String finalName = getFinalName(info.getUuid());
+
+			String module = "";
+			if(StringUtils.hasText(info.getModule())) {
+				module = "/" + info.getModule();
+			}
+
+			String finalName = getFinalName(module, info.getUuid());
 			if(finalName != null) {
-				FileUtils.copyFile(new File(basePath + "/" + info.getUuid() + "/target/" + finalName), new File(basePath + "/" + info.getUuid() + "/webapps/" + contextPath + ".war"));
+				FileUtils.copyFile(new File(basePath + "/" + info.getUuid() + module + "/target/" + finalName), new File(basePath + "/" + info.getUuid() + "/webapps/" + contextPath + ".war"));
 				// 启动程序
 				sb.append(ShellUtil.exec("sh " + shellFileFolder + "/start.sh " + info.getUuid() + " " + info.getPort() + " " + jettyPath + " " + basePath));
 			} else {
@@ -115,8 +121,8 @@ public class JavaWebDeployService {
 		}
 	}
 	
-	private String getFinalName(String uuid) {
-		File dir = new File(basePath + "/" + uuid + "/target");
+	private String getFinalName(String module, String uuid) {
+		File dir = new File(basePath + "/" + uuid + module + "/target");
 		File[] files = dir.listFiles();
 		
 		String fileName = null;
