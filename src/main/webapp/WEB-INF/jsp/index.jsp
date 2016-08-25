@@ -47,15 +47,12 @@
 						<div class="input-field col s12 m6 offset-m2">
 							<nav>
 								<div class="nav-wrapper">
-									<form>
-										<div class="input-field">
+										<div class="input-field" style="height: 100%">
 											<input id="java-deploy-search" type="search">
 											<label for="java-deploy-search">
 												<i class="material-icons" style="line-height: inherit;">search</i>
 											</label>
-											<i class="material-icons">close</i>
 										</div>
-									</form>
 								</div>
 							</nav>
 						</div>
@@ -92,15 +89,12 @@
 						<div class="input-field col s12 m6 offset-m2">
 							<nav>
 								<div class="nav-wrapper">
-									<form>
-										<div class="input-field">
+										<div class="input-field" style="height: 100%">
 											<input id="java-web-deploy-search" type="search">
 											<label for="java-web-deploy-search">
 												<i class="material-icons" style="line-height: inherit;">search</i>
 											</label>
-											<i class="material-icons">close</i>
 										</div>
-									</form>
 								</div>
 							</nav>
 						</div>
