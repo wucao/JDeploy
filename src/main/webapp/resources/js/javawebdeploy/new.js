@@ -20,6 +20,14 @@ $(document).ready(function() {
 
 	});
 
+	$("input[name='type']").change(function () {
+		if(this.value == 2) {
+			$(".input-field-branch").fadeIn();
+		} else {
+			$(".input-field-branch").fadeOut();
+		}
+	});
+
 	/**
 	 * 用于代替alert
 	 * @param text

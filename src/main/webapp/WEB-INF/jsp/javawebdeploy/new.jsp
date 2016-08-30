@@ -56,11 +56,15 @@
 										<input type="text" id="input-url" name="url">
 										<label for="input-url">SVN/GIT地址</label>
 									</div>
-									<div class="input-field col s12">
+									<div class="input-field col s6" style="min-height: 70px;">
 										<input class="with-gap" name="type" type="radio" id="input-svn" checked="checked" value="1" />
 										<label for="input-svn">SVN</label>
 										<input class="with-gap" name="type" type="radio" id="input-git" value="2" />
 										<label for="input-git">GIT</label>
+									</div>
+									<div class="input-field col s6 input-field-branch" style="display: none;">
+										<input type="text" id="input-branch" name="branch">
+										<label for="input-branch">Git分支</label>
 									</div>
 								</div>
 

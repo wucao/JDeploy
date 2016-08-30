@@ -11,6 +11,15 @@ public class JavaDeployInfo {
     private String url;
     private String profile;
     private String module;
+    private String branch;
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
 
     public String getModule() {
         return module;

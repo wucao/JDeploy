@@ -65,7 +65,7 @@ public class JavaWebDeployService {
 				contextPath = "root";
 			}
 			
-			String[] cmdArray = {"sh", shellFileFolder + "/package.sh", info.getUuid(), info.getUrl(), jettyPath, basePath, String.valueOf(info.getType()), info.getProfile()};
+			String[] cmdArray = {"sh", shellFileFolder + "/package.sh", info.getUuid(), info.getUrl(), jettyPath, basePath, String.valueOf(info.getType()), info.getProfile(), info.getBranch()};
 			sb.append(ShellUtil.exec(cmdArray));
 
 			String module = "";

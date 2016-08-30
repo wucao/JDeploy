@@ -20,6 +20,9 @@ public class ShellUtil {
 		for(int i = 1; i < cmd.length; i++) {
 			if(StringUtils.hasText(cmd[i]))
 				cmdLine.addArgument(cmd[i], false);
+			else {
+				cmdLine.addArgument("null", false);
+			}
 		}
 		
 		DefaultExecutor executor = new DefaultExecutor();

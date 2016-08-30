@@ -9,6 +9,7 @@
 # $4 项目部署路径
 # $5 版本控制系统(1.SVN;2.GIT)
 # $6 Maven profile
+# $7 Git分支
 
 if [ -z "$1" ]||[ -z "$4" ]; then
     echo "参数不能为空"
@@ -24,9 +25,12 @@ then
 	svn checkout $2 .
 else
 	git clone $2 .
+	if [ "$7" != "null" ]; then
+        git checkout $7
+    fi
 fi
 
-if [ -n "$6" ]; then
+if [ "$6" != "null" ]; then
     mvn clean package -Dmaven.test.skip=true -P$6
 else
     mvn clean package -Dmaven.test.skip=true

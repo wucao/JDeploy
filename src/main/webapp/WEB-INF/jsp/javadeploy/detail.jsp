@@ -92,7 +92,8 @@
 						<p>SVN地址：${detail.url}</p>
 						</c:if>
 						<c:if test="${detail.type == 2}">
-						<p>GIT地址：${detail.url}</p>
+							<p>GIT地址：${detail.url}</p>
+							<p>GIT分支：${detail.branch}</p>
 						</c:if>
 					</div>
 					<div class="card-action">
